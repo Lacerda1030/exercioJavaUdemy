@@ -1,6 +1,5 @@
 package br.com.aulasudemy.poo.aplication;
 
-import java.text.DateFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -16,6 +15,7 @@ import java.util.Scanner;
 import br.com.aulasudemy.poo.entities.Employee;
 import br.com.aulasudemy.poo.entities.People;
 import br.com.aulasudemy.poo.entities.Product;
+import br.com.aulasudemy.poo.entities.Triangle;
 
 public class Main {
 
@@ -135,6 +135,65 @@ public class Main {
 				}
 				
 				case 4:{
+					Triangle x = new Triangle();
+					Triangle y = new Triangle();
+					
+					Double areaX, areaY;
+					
+					System.out.println("Enter the measures of triangle X: ");
+					x.a = sc.nextDouble();
+					x.b = sc.nextDouble();
+					x.c = sc.nextDouble();
+					
+					System.out.println("Enter the measures of triangle Y: ");
+					y.a = sc.nextDouble();
+					y.b = sc.nextDouble();
+					y.c = sc.nextDouble();
+					
+					areaX = x.area();
+					areaY = y.area();
+					System.out.printf("Triangle X area: %.4f%n", areaX);
+					
+					System.out.printf("Triangle X area: %.4f%n", areaY);
+					
+					if(areaX > areaY) {
+						System.out.println("Large area: X");
+					}else {
+						System.out.println("Large area: Y");
+					}
+					
+					Product product = new Product();
+					
+					System.out.println("Enter produtc data: ");
+					System.out.print("Name: ");
+					product.name = sc.nextLine();
+					System.out.print("Price: ");
+					product.price = sc.nextDouble();
+					System.out.print("Quantity: ");
+					product.quantity = sc.nextInt();
+					
+					System.out.println("Product data: " + product);
+					System.out.println();
+					System.out.print("Enter the numbers of product to be added in stock: ");
+					int quantity = sc.nextInt();
+					product.AddProduct(quantity);
+					
+					System.out.println();
+					System.out.println("Updated data: " + product);
+					System.out.println();
+					
+					
+					System.out.print("Enter the numbers of product to be removed from stock: ");
+					quantity = sc.nextInt();
+					product.removeProduct(quantity);
+					
+					System.out.println();
+					System.out.println("Updated data: " + product);
+					System.out.println();
+
+					
+				}
+				case 5:{
 					
 					List<Employee> list = new ArrayList<>();
 					int n, id;
@@ -180,7 +239,7 @@ public class Main {
 					break;
 				}
 				
-				case 5:{
+				case 6:{
 					
 					int element, posL = 0, posC = 0, down = 0, up = 0, right = 0, left = 0; 
 					System.out.println();
@@ -249,7 +308,7 @@ public class Main {
 						
 					break;
 				}
-				case 6:{
+				case 7:{
 					LocalDate d1 = LocalDate.now();
 					LocalDateTime d2 = LocalDateTime.now();
 					Instant d3 = Instant.now();
@@ -310,62 +369,7 @@ public class Main {
 		}while(op != 0);
 				
 		
-		/*Triangle x = new Triangle();
-		Triangle y = new Triangle();
-		
-		Double areaX, areaY;
-		
-		System.out.println("Enter the measures of triangle X: ");
-		x.a = sc.nextDouble();
-		x.b = sc.nextDouble();
-		x.c = sc.nextDouble();
-		
-		System.out.println("Enter the measures of triangle Y: ");
-		y.a = sc.nextDouble();
-		y.b = sc.nextDouble();
-		y.c = sc.nextDouble();
-		
-		areaX = x.area();
-		areaY = y.area();
-		System.out.printf("Triangle X area: %.4f%n", areaX);
-		
-		System.out.printf("Triangle X area: %.4f%n", areaY);
-		
-		if(areaX > areaY) {
-			System.out.println("Large area: X");
-		}else {
-			System.out.println("Large area: Y");
-		}
-		
-		Product product = new Product();
-		
-		System.out.println("Enter produtc data: ");
-		System.out.print("Name: ");
-		product.name = sc.nextLine();
-		System.out.print("Price: ");
-		product.price = sc.nextDouble();
-		System.out.print("Quantity: ");
-		product.quantity = sc.nextInt();
-		
-		System.out.println("Product data: " + product);
-		System.out.println();
-		System.out.print("Enter the numbers of product to be added in stock: ");
-		int quantity = sc.nextInt();
-		product.AddProduct(quantity);
-		
-		System.out.println();
-		System.out.println("Updated data: " + product);
-		System.out.println();
-		
-		
-		System.out.print("Enter the numbers of product to be removed from stock: ");
-		quantity = sc.nextInt();
-		product.removeProduct(quantity);
-		
-		System.out.println();
-		System.out.println("Updated data: " + product);
-		System.out.println();*/
-		
+				
 		sc.close();
 		
 		
@@ -395,9 +399,10 @@ public class Main {
 		System.out.println("1 - Simple Vetor");
 		System.out.println("2 - Class Vector");
 		System.out.println("3 - Vector Fixing exercise");
-		System.out.println("4 - ArrayList Fixing exercise");
-		System.out.println("5 - Matrix Fixing exercise");
-		System.out.println("6 - Date Time exempla");
+		System.out.println("4 - Class exercise");
+		System.out.println("5 - ArrayList Fixing exercise");
+		System.out.println("6 - Matrix Fixing exercise");
+		System.out.println("7 - Date Time exempla");
 		System.out.println("0 - Exit");
 		System.out.println("Choose an option: ");
 
